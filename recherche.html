@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche - Omnes Immobilier</title>
+    <link rel="stylesheet" href="stylehome.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Omnes Immobilier</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="#">Tout Parcourir</a></li>
+                <li><a href="recherche.html">Recherche</a></li>
+                <li><a href="#">Rendez-vous</a></li>
+                <li><a href="#">Votre Compte</a></li>
+            </ul>
+        </nav>
+
+        <section id="search-section">
+            <div class="search-container">
+                <form action="" method="POST">
+                    <input type="text" class="search-bar" name="query" placeholder="Rechercher...">
+                    <button type="submit" class="search-button">Rechercher</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="search-results">
+            <h2>Résultats de recherche</h2>
+            <div id="results-container">
+                <?php
+                // Identifier le nom de base de données
+        $database = "pokemon";
+
+        // Connexion à la base de données
+        // À adapter en fonction de votre environnement
+
+        // Connexion à la base de données
+        // WAMP sur Windows avec MySQL
+        $db_handle = mysqli_connect('localhost', 'root', '', $database);
+        // WAMP sur Windows avec MariaDB
+        // $db_handle = mysqli_connect('db', 'root', '', $database, 3307);
+        // Mac OS
+        // $db_handle = mysqli_connect('localhost', 'root', 'root', $database, 8889);
+
+        $db_found = mysqli_select_db($db_handle, $database);
+                // Traitement de la recherche
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $query = trim($_POST['query']);
+                    
+
+                    $sql = "SELECT * FROM agents_immobiliers WHERE nom LIKE '%$query%'";
+                
+
+                    if ($result->num_rows > 0) {
+                        $results = $result->fetch_all(MYSQLI_ASSOC);
+                    } else {
+                        $results = [];
+                    }
+                }
+
+                // Affichage des résultats
+                if (isset($results) && count($results) > 0) {
+                    foreach ($results as $agent) {
+                        echo '<div class="agent-card">';
+                        echo '<p><strong>Nom:</strong> ' . htmlspecialchars($agent['nom']) . '</p>';
+                        echo '<p><strong>Prénom:</strong> ' . htmlspecialchars($agent['prenom']) . '</p>';
+                        echo '<p><strong>Téléphone:</strong> ' . htmlspecialchars($agent['telephone']) . '</p>';
+                        echo '<p><strong>Email:</strong> ' . htmlspecialchars($agent['email']) . '</p>';
+                        echo '<p><strong>Spécialité:</strong> ' . htmlspecialchars($agent['specialite']) . '</p>';
+                        echo '<p><strong>Jours de travail:</strong> ' . htmlspecialchars($agent['jours_travail']) . '</p>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>Aucun agent trouvé avec ce nom de famille.</p>';
+                }
+
+                // Fermeture de la connexion
+                $conn->close();
+                ?>
+            </div>
+        </section>
+
+        <footer>
+            <div class="contact-info">
+                <h3>Nous contacter</h3>
+                <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter :</p>
+                <p>Email : info@omnesimmobilier.com</p>
+                <p>Téléphone : +123 456 789</p>
+                <p>Adresse : 123 Rue des Immobilier, Ville, Pays</p>
+                <br>
+                <p>&copy; 2024 Omnes Immobilier. Tous droits réservés.</p>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5413.220596222361!2d-2.4065150240548543!3d47.282872010277124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48055ca3e95a9abd%3A0xef3cffeeafc73d53!2s22%20Av.%20Drevet%2C%2044500%20La%20Baule-Escoublac!5e0!3m2!1sfr!2sfr!4v1716901768269!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
