@@ -1,0 +1,318 @@
+/* styles.css */
+
+/* Couleurs ECE */
+:root {
+    --ece-blue: #003366;
+    --ece-dark-blue: #002147; /* Bleu foncé */
+    --ece-orange: #ff6600;
+}
+
+/* Général */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* En-tête */
+header {
+    background-color: var(--ece-blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Barre de navigation */
+nav {
+    background-color: var(--ece-blue);
+    text-align: center;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--ece-dark-blue); /* Changement de la couleur au bleu foncé */
+    transform: scale(1.1);
+}
+
+/* Wrapper */
+.wrapper {
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto; /* Centre le wrapper horizontalement */
+    max-width: auto; /* Limite la largeur maximale du contenu */
+
+
+   
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+h2 {
+    color: var(--ece-blue);
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--ece-blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--ece-orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+footer p1 {
+    margin: 5px 0;
+    height: 10%;
+    font-size: 10px;
+}
+
+#map {
+    margin-top: 20px;
+}
+
+
+#carrousel {
+position: relative;
+height: 425px;
+width: 700px;
+margin: auto;
+}
+
+#carrousel ul li img{
+position: absolute;
+top: 0;
+left: 0;
+list-style-type: none;
+object-fit: cover;
+border: 2px solid #ccc; /* Ajout de la bordure grise */
+}
+
+.controls{
+    width: 700;
+    margin-left: 410px;
+    margin-right: 410px;
+    
+}
+.leftbutton{
+    float: left;
+}
+.rightbutton{
+    float: right;
+}
+
+.Thumbnail {
+    width: 50px; /* Largeur de la miniature */
+    height: 50px; /* Hauteur de la miniature */
+    border: 2px solid #ddd; /* Bordure de la miniature */
+    margin: 0 2px; /* Marge entre les miniatures */
+    cursor: pointer; /* Curseur pointeur */
+}
+
+.Thumbnail.active {
+    border-color: #f00; /* Bordure de la miniature active */
+}
+.contact-info {
+    flex: 1;
+}
+
+.map {
+    flex: 1;
+}
+
+.map iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+}
+
+
+.search-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.search-bar {
+    border: none;
+    padding:10px,10px;
+    font-size: 16px;
+    flex: 1;
+    outline: none;
+    width: 1200px;
+}
+
+.search-button {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 110px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/*definition de la taille des images dans la recherche*/
+.bien-card img {
+            width: 450px;
+            height: 250px;
+            object-fit: cover;
+}
+.agent-card img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+}
+
+
+/* Catégories d'immobilier */
+.category-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.category {
+    background-color: var(--ece-blue);
+    color: white;
+    width: 22%;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+}
+.property {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+}
+
+sectionclient {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/*bouton prendre rdv*/
+.appointment-form {
+    margin-top: 20px;
+}
+
+.appointment-button {
+    background-color: var(--ece-blue); /* ECE blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none; /* Remove underline */
+}
+
+.appointment-button:hover {
+    background-color: var(--ece-dark-blue); /* Darker shade of ECE blue */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.availability-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.availability-table th, .availability-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.availability-table th {
+    background-color: #f2f2f2;
+}
+
+.available-slot {
+    background-color: white;
+}
+
+.unavailable-slot {
+    background-color: #003366; /* ECE blue */
+    color: white;
+}
+
+.back-button {
+    background-color: #003366; /* ECE blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #002147; /* Darker shade of ECE blue */
+}
+.delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
